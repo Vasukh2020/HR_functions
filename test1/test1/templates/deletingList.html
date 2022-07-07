@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for i in object_list %}
+
+<a href=" {% <int:pk_>/ddelete/ %} "><p> {{i.id}} :{{i.title}} </p>
+ Delete</a>
+
+{% endfor %}
+{% endblock content %}

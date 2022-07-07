@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% block content %}
+<h1>extend part</h1>
+<p>
+    {{my_text|title}},{{num}}
+    <ul>
+        {% for i in my_list %}
+        <li>{{i}}</li>
+        {% endfor %}
+        {% if a == 5 %}
+           <li>{{a}}</li>
+        {% elif a == 4 %}
+           <li>{{a|add:12}}</li>
+        {% endif %}
+
+
+    </ul>
+    
+</p>
+{% endblock content %} 

@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{% block content %} 
+
+
+<h1>Update member</h1>
+
+<form action="" method="POST">
+{% csrf_token %}
+Title:<br>
+<input name="t" value=" {{title}} ">
+
+<br><br>
+Description:<br>
+<input name="d" value=" {{description}} ">
+
+<br><br>
+<button type=" submit" name="add" value="save"> Add</button>
+</form>
+{% endblock content %}

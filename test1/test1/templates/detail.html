@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>obs title:{{title}}</h1>
+<p>Description--</p>
+{% if object.description == '' %}
+   <p>not described</p> 
+{% endif %}     
+<p>{{description}}</p> 
+   <p>Price is {{p}}</p> 
+{% endblock content %}

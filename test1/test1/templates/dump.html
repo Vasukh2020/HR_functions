@@ -1,0 +1,17 @@
+obj= Product.objects.get(id=1)
+    context={
+        'title':obj.title,
+        'description':obj.description,
+        'p':obj.price
+
+
+deleting
+        {% extends 'base.html' %}
+        {% block content %}
+        {% for i in object_list %}
+        
+        <a href=" {% url 'deleting' i.id %} "><p>{{i.id}}:{{i.title}}</p>
+         Delete</a>
+        
+        {% endfor %}
+        {% endblock content %}         
