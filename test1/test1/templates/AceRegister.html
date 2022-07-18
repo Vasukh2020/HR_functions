@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Register User</h1>
+<form method="POST" action="" >
+  {% csrf_token %}
+   {{i.title}}
+    <select id="title" name="sal">
+      <option  type="text" name="sal" value="Mr.">Mr.</option>
+      <option  type="text" name="sal" value="MRS">Mrs.</option>
+      <option  type="text" name="sal" value="MS">Ms.</option>
+
+  </select>
+   <!-- <input type="text" name="sal" placeholder="sal"> -->
+   {{i.firstName}}
+  <input type="text" name="firstName" placeholder="firstName">
+  {{i.lastName}}
+  <input type="text" name="lastName" placeholder="lastName">
+  {{i.email}}
+  <input type="text" name="email" placeholder="email">
+  {{i.phoneNumber}}
+  <input type="number" name="phoneNumber" placeholder="phoneNumber">
+  {{i.password}}
+  <input type="password" name="password" placeholder="password">
+  
+  
+
+  <button type="submit" name="add" value="save"> Add</button>
+</form>
+{% for  message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+{% endblock %}
+
+
+
+

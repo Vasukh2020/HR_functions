@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<p>ddvdv</p>
+{% block content %}
+<form href="/logout" >
+{% if request.user.is_authenticated %}
+ <p>{{request.user}}</p>
+ <p></p>
+ 
+ {% endif %}
+
+<button type="submit" name="logout" value="logout" href="login">Logout</button>
+</form>
+<p></p>
+{% for  message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+{% endblock %}
+

@@ -16,10 +16,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from hello.views import *
+from AceLogin.views import *
 from django.contrib import admin
 # from Article.views import *
 
 urlpatterns = [
+
+#the AceLogin part of url
+
+path('register/', register, name='register'),
+path('login/', login, name='login'),
+path('info/', information, name='information'),
+
+path('logout/',logout, name='logout'),
+path('<int:pk>/ddvc/', dynamic_AceInformation, name='dynamic_AceInformation'),
+
+#part of hello study
     path('', home_view, name='home'),
     path('l/', lhome_view, name='lview'),
     path('r/', view),
