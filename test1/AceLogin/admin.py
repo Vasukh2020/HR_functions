@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.contrib import admin
 
 # Register your models here.
-from .models import RegisterUser
+from .models import RegisterUser,Book
 
 admin.site.register(RegisterUser)
+admin.site.register(Book)

@@ -19,7 +19,9 @@ from hello.views import *
 from AceLogin.views import *
 from django.contrib import admin
 # from Article.views import *
-
+#for uploadingpart
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
 
 #the AceLogin part of url
@@ -30,6 +32,12 @@ path('info/', information, name='information'),
 
 path('logout/',logout, name='logout'),
 path('<int:pk>/ddvc/', dynamic_AceInformation, name='dynamic_AceInformation'),
+
+#the upload file part 
+path('upload', upload, name='upload' ), 
+path('uploadResume', uploadResume, name='uploadResume' ), 
+path('listResume', listResume, name='listResume' ), 
+
 
 #part of hello study
     path('', home_view, name='home'),
@@ -65,4 +73,6 @@ path('<int:pk>/ddvc/', dynamic_AceInformation, name='dynamic_AceInformation'),
   
 
 ]
-
+#another part of file upload
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)

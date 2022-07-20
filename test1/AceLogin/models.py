@@ -7,7 +7,10 @@ from django.db import models
 from django.contrib.auth import get_user_model
 
 from phonenumber_field.modelfields import PhoneNumberField
-    
+from .validators import validate_file
+
+
+
 User= get_user_model()
 TITLE_CHOICES = [
     ('MR', 'Mr.'),
@@ -27,3 +30,10 @@ class RegisterUser(models.Model):
    
     def __str__(self):
         return self.firstName
+
+class Book(models.Model):
+    name=models.CharField(max_length=100)
+    resume= models.FileField(blank=True,verbose_name="", validators=[validate_file]) 
+    def __str__(self):
+        return self.name
+    

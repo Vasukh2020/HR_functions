@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Applicants </h2>
+{% for Book in books %}
+<p>
+ {{Book.name}}
+ <a href="media/{{Book.resume}} " >Download</a>
+
+
+</p>
+{% endfor %}
+{% endblock %}

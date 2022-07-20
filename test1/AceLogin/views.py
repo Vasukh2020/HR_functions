@@ -8,7 +8,12 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
 # Create your views here.
-
+##theswe imports are for uploading part
+from django.core.files.storage import FileSystemStorage
+from AceLogin.models import Book
+from .forms import BookForm
+from .models import Book
+##uplading imports end here 
 '''''    
  def login(request):
     if request.method== "POST" :
@@ -176,3 +181,59 @@ def register(request):
             # messages.info(request,'invalid') 
         
          return render (request, "AceRegister.html")  
+
+
+
+ #######
+ # for the file upload part ]
+ #the upload fx works for a ll kina files
+def upload(request):
+    context={}
+    if request.method=="POST":
+        uploaded_file= request.FILES['file']
+        fs= FileSystemStorage()
+        name=fs.save(uploaded_file, uploaded_file)
+        url=fs.url(name)
+        
+        context['url']=fs.url(name)
+        print(uploaded_file.name)
+        print(uploaded_file.size)
+
+
+    return render(request,'upload.html',context) 
+
+#for pdfs etc
+def listResume(request):
+    books=Book.objects.all()
+    return render(request, 'listResume.html',{'books':books})
+def uploadResume(request):
+    if request.method=="POST":
+     print("the request shoewn is:",request)  
+     print("the request.files shoewn is:",request.FILES)
+     import os  
+
+     form= BookForm(request.POST, request.FILES)  
+     print("this iis form",form)
+     ''''
+
+                                def clean_file(self):
+                                    data = self.cleaned_data['file']
+
+                                    # check if the content type is what we expect
+                                    content_type = data.content_type
+                                    if content_type == 'application/pdf':
+                                        return data
+        else:
+            raise ValidationError(_('Invalid content type'))  
+     file = form.FileField()
+     clean_file(file)  
+     '''        
+     if form.is_valid():
+        form.save()
+        print("form saved",form)
+        Name=request.POST.get("resume")
+        print("thre reusme name:",Name)
+        return redirect('listResume')
+    else:
+        form=BookForm()
+    return render(request,'uploadResume.html',{'form':form})    
