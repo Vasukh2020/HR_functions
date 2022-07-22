@@ -46,7 +46,7 @@ path('listResume', listResume, name='listResume' ),
     path('side1/',side1),
     path('side2/',side2),
    path('ex/', extend_part),
-   path('<int:pk>/detail/',product_detail_view),
+ path('<int:pk>/detail/',product_detail_view),
    path('datad/' ,product_create_view,),
     path('getpost/' ,product_create_view,), path('dgetpost/' ,product_create_view,),
 

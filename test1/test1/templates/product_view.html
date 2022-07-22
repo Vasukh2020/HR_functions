@@ -3,17 +3,25 @@
 
 {% block content %}
 {% include 'navSearch.html' %}
-
+<ul>
 {% for i in object_list %}
- <p>{{i.id}}:{{i.title}} Price={{i.price}}</p>
+ <li>
+  <a href="/{{i.pk}}/ddv"> <p>{{i.title}} </p></a>
+   <p>Price={{i.price}}</p>
+</li>
 {% endfor %}
-
+</ul>
 {% if object_list.has_previous %}
-   <a href="?page={{ object_list.previous_page_number }}">Previous page</a>
+  <p><a href="?page={{ object_list.previous_page_number }}">Previous page</a></p> 
+{% else %} 
+<br>
+
 {% endif %}
 <!---
 -->
 {% if object_list.has_next %}
 <p><a href="?page={{object_list.next_page_number}}">Next page</a></p>
+{% else %}
+<br>
 {% endif %}
 {% endblock content %} 

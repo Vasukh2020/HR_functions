@@ -39,7 +39,7 @@ def product_detail_view(request,pk):
     }
     print("request+++",request)
     return render(request,"detail.html",context)
-
+ 
 def product_list_view(request):
     queryset =  Product.objects.all()
     p =Paginator(queryset,4)
@@ -127,6 +127,7 @@ def dynamic_detail_view(request,pk):
         'description':obj.description,
         'p':obj.price
     }
+    print("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
     return render(request,"detail.html",context)
     #return redirect("home")
 def dynamic_update(request,pk):

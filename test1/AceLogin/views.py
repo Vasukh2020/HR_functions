@@ -33,7 +33,11 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout 
 
 from django.contrib.auth import authenticate
+
+baseurl= "http://127.0.0.1:8000"
+print(baseurl)
 def login(request):
+   
     print("starting of login")
     if request.method== "POST" :
         print("request.Post=",request.POST)
