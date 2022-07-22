@@ -53,7 +53,7 @@ def login(request):
             firstName=event.firstName
             pk=event.pk
             # return(dynamic_AceInformation(request,pk))
-            print("thee id of the uswer is ",id)
+            print("thee id of the uswer is ",pk)
             messages.info(request,firstName)
             context={
                 'firstName':event.firstName,
@@ -64,9 +64,9 @@ def login(request):
             }
             print("last name",event.lastName)
             print(context)
+            return(dynamic_AceInformation(pk))
            # return(dynamic_AceInformation(event))
-           # return render(request, 'AceInformation.html',context)
-            return redirect ("information")    
+            return render(request, 'AceInformation.html',context)    
         else:
             
             messages.info(request,'Check email and password again')
@@ -76,16 +76,17 @@ def login(request):
     else:
        print("it wa---------------------")
        return render(request, 'AceLogin.html')
-def dynamic_AceInformation(event):
+def dynamic_AceInformation(pk_):
+    event= RegisterUser.objects.get(id=pk_)
     print("last name",event.lastName)
-    print("last name",event.firstName)
+    print("first name",event.firstName)
 
-    """  print(obj.lastName)
+    
     context={
-        'object_list':obj
+        'object_list':event
     }
     print(context['object_list'])
-    print("context in dynamicace iNfo",context) """
+    print("context in dynamicace iNfo",context) 
     return redirect(information)
 
 def Logout(request):
@@ -100,6 +101,7 @@ def Logout(request):
 
 
 def information(request):
+    print("informantion function called")
     my_user = request.user
     
     """firstNamme=user.firstName"""

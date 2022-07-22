@@ -8,9 +8,9 @@
  
  {% endif %}
 
-<button type="submit" name="logout" value="logout" href="login">Logout</button>
+<button type="submit" name="logout" value="submit" href="logout">Logout</button>
 </form>
-<p></p>
+<h3> {{title}} {{firstName}} {{lastName}}.</h3>
 {% for  message in messages %}
 <h3>{{message}}</h3>
 {% endfor %}

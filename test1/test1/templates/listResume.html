@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2>Applicants </h2>
+<ol>
 {% for Book in books %}
-<p>
- {{Book.name}}
- <a href="media/{{Book.resume}} " >Download</a>
-
+<p><li>{{Book.name}}</li>
+   <ul><a href="media/{{Book.resume}} " >Download</a>
+    <a href="{{Book.linkedin}}">LinkedIn</a>
+</ul> 
+   
+ 
 
 </p>
 {% endfor %}
+</ol>
 {% endblock %}

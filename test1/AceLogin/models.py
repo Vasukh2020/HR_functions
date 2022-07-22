@@ -32,8 +32,15 @@ class RegisterUser(models.Model):
         return self.firstName
 
 class Book(models.Model):
-    name=models.CharField(max_length=100)
+    name=models.CharField(max_length=100,
+    #default
+    default="."
+    )
     resume= models.FileField(blank=True,verbose_name="", validators=[validate_file]) 
+    linkedin=models.URLField(max_length=200, blank=True,
+    #default
+    default=""
+    )
     def __str__(self):
         return self.name
     

@@ -5,7 +5,7 @@ import os
 class BookForm(forms.ModelForm):
     class Meta:
         model=Book
-        fields=('name','resume',) 
+        fields=('name','resume','linkedin',) 
     def __init__(self, *args, **kwargs):
         print("well it reached in forms.py")
         super(BookForm, self).__init__(*args, **kwargs)
